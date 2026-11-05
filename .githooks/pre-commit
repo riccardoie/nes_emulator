@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if ! cargo fmt --all -- --check; then
+    echo "Formatting check failed. Run 'cargo fmt --all', stage the changes, and retry the commit." >&2
+    exit 1
+fi
