@@ -41,7 +41,7 @@ To apply formatting, run `cargo fmt --all`. There are no tests yet.
 
 GitHub Actions runs these checks on pushes and pull requests targeting `main` or `dev`.
 
-### Pre-commit formatting check
+### Pre-commit checks
 
 Enable the shared Git hook once per clone:
 
@@ -51,7 +51,7 @@ git config --local core.hooksPath .githooks
 
 On macOS or Linux, also run `chmod +x .githooks/pre-commit`.
 
-The hook runs `cargo fmt --all -- --check` before each commit and blocks the commit if formatting fails. It checks the current working tree, not just staged changes, and does not modify files. To fix formatting, run `cargo fmt --all`, stage the changes, and retry the commit.
+The hook runs `cargo fmt --all -- --check` and `cargo clippy --locked --all-targets --all-features` before each commit. Formatting failures and Clippy errors block the commit; Clippy warnings do not. It checks the current working tree, not just staged changes, and does not automatically fix source files. To fix formatting, run `cargo fmt --all`, stage the changes, and retry the commit.
 
 ## Proposed roadmap
 

@@ -8,6 +8,12 @@ pub struct CPU {
     pub register_x: u8,
 }
 
+impl Default for CPU {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl CPU {
     pub fn new() -> Self {
         CPU {
@@ -30,15 +36,15 @@ impl CPU {
 
     fn update_zero_and_negative_flags(&mut self, result: u8) {
         if result == 0 {
-            self.status = self.status | 0b0000_0010;
+            self.status |= 0b0000_0010;
         } else {
-            self.status = self.status & 0b1111_1101;
+            self.status &= 0b1111_1101;
         }
 
         if result & 0b1000_0000 != 0 {
-            self.status = self.status | 0b1000_0000;
+            self.status |= 0b1000_0000;
         } else {
-            self.status = self.status & 0b0111_1111;
+            self.status &= 0b0111_1111;
         }
     }
 

@@ -4,3 +4,8 @@ if ! cargo fmt --all -- --check; then
     echo "Formatting check failed. Run 'cargo fmt --all', stage the changes, and retry the commit." >&2
     exit 1
 fi
+
+if ! cargo clippy --locked --all-targets --all-features; then
+    echo "Clippy check failed. Fix the errors, stage the changes, and retry the commit." >&2
+    exit 1
+fi
