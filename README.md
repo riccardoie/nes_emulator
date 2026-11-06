@@ -2,7 +2,7 @@
 
 [![Rust CI](https://github.com/riccardoie/nes_emulator/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/riccardoie/nes_emulator/actions/workflows/ci.yml)
 
-A Nintendo Entertainment System (NES) emulator project written in Rust.
+A Nintendo Entertainment System (NES) emulator project written in Rust following https://bugzmanov.github.io/nes_ebook/chapter_1.html.
 
 ## Status
 
